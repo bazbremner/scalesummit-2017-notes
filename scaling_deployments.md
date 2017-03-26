@@ -13,12 +13,13 @@ alright". Auth model is terrible, tied to git access etc.
 So, code flows through the pipeline. What are the steps and how do
 things get to the next step?
 
-Not actually enforcing automated tests, but it is obviously good
-practice.
+The team with the 450 services are not actually enforcing automated
+tests, but it is obviously good practice.
 Some "discussions" around experimentation being an excuse not to
 test. Cultural issue.
 
-Sally Godel from the Guardian has a good talk about not running tests.
+Sally Goble from the Guardian has a good talk about not running
+tests. (I believe the talk in question is https://vimeo.com/162635477).
 
 There are no staging environments. Dev environments (devs are expected
 to be able to spin up dependancies for their microservice). UX testing
@@ -62,7 +63,7 @@ Netflix for example will use 5% canarys and watch the
 metrics. Provided new code is within limits, it's promoted.
 
 Guardian had matrix of user journey vs software versions. Customers
-are really good at testing your sofrware.
+are really good at testing your software ;)
 
 Amy Hughes talked at Pipeline (?) about doing statistical analysis on
 new releases. Didn't get the details on this.
@@ -91,7 +92,7 @@ non-backwards compatible schema changes. ~90% were OK to deploy and
 the remaining 10% could have been written in a way to be backwards
 compatible.
 
-Persauding the team this was possible was one of the bigger issues.
+Persuading the team this was possible was one of the bigger issues.
 
 Smaller changesets made a big difference. Making new code to read old
 DB schema, update schema, update code was much easier to understand
@@ -104,7 +105,9 @@ production access logs against it. Deploy DB update, test, deploy
 code, test.
 Put out comments that "Rollback wasn't a thing, stop it".
 
-MBS wrote a blog post about DB migrations done probably a while ago.
+MBS wrote a blog post about DB migrations done properly a while ago.
+http://www.brunton-spall.co.uk/post/2014/05/06/database-migrations-done-right/
+
 ORMs can make migrations every difficult, and provide empty
 rollbacks. Doesn't exactly work when you DROP COLUMN :)
 
@@ -113,9 +116,9 @@ Don't pretend you can rollback.
 Does anyone enforce how often old data has to kick around for safety
 and backwards/forward compatibility?
 
-plus/minus 1 version.
+One answer: plus/minus 1 version.
 
-Customer's shouldn't notice deploys.
+Customers shouldn't notice deploys.
 
 Another team support many (5) versions of APIs, keep the data around,
 it's all managed in code.
@@ -137,8 +140,8 @@ Another team did something similar - baseline fields were the same,
 but newer clients could request additional newer fields. Easier than
 maintaining schema versions of API endpoints.
 
-75% using Jenkin
-5% team city
+75% using Jenkins
+5% Teamcity
 1 Drone
 1 Codeship
 
